@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import TextField from '@material-ui/core/TextField';
-import {useStyles} from './Styles'
+import {useStyles} from './Styles';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
+import { Link } from 'react-router-dom';
 
 
 export default function LayoutTextFields() {
   const classes = useStyles();
+  const [name, setName] = useState(' ');
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
@@ -21,6 +25,9 @@ export default function LayoutTextFields() {
             shrink: true,
           }}
           variant="outlined"
+          onChange = {(e)=>{
+             setName(e.target.value)
+            }}
         />
          <TextField
           id="outlined-full-width"
@@ -82,6 +89,18 @@ export default function LayoutTextFields() {
 
         </div>
       </div>
+      <Link to="/registros">
+            <Button
+                variant="contained"
+                color="primary"
+                className={classes.button}
+                sendIcon={<Icon>send</Icon>}
+                onClick={()=>{localStorage.setItem("nombredeusuario", JSON.stringify(name));}}
+            >
+            Registrar
+            </Button>
+
+        </Link>
     </form>
   );
 }

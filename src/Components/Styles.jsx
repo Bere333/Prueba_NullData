@@ -10,4 +10,7 @@ export const useStyles = makeStyles(theme => ({
       marginRight: theme.spacing(1),
       width: 200,
     },
+    button: {
+      margin: theme.spacing(1),
+    },
   }));
