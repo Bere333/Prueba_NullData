@@ -13,9 +13,8 @@ export default function LayoutTextFields() {
         <TextField
           id="outlined-full-width"
           label="Nombre completo"
-          style={{ margin: 4 }}
+          style={{ margin: 8 }}
           placeholder="Introduce tu nombre completo"
-          helperText="Full width!"
           fullWidth
           margin="normal"
           InputLabelProps={{
@@ -28,7 +27,6 @@ export default function LayoutTextFields() {
           label="Correo"
           style={{ margin: 8 }}
           placeholder="Introduce tu correo"
-          helperText="Full width!"
           fullWidth
           margin="normal"
           InputLabelProps={{
@@ -40,44 +38,49 @@ export default function LayoutTextFields() {
           id="date"
           label="Fecha de nacimiento"
           type="date"
-          defaultValue="2017-05-24"
+          style={{ margin: 8 }}
+          defaultValue="2020-01-01"
           className={classes.textField}
           InputLabelProps={{
             shrink: true,}}
             variant="outlined"
         />
-        <TextField
-          label="Calle"
-          id="outlined-margin-dense"
-          placeholder="Introduce colonia"
-          className={classes.textField}
-          margin="dense"
-          variant="outlined"
-        />
-        <TextField
-          label="Num ext"
-          id="outlined-margin-normal"
-          className={classes.textField}
-          helperText="Some important text"
-          margin="normal"
-          variant="outlined"
-        />
-        <TextField
-          label="Colonia"
-          id="outlined-margin-normal"
-          className={classes.textField}
-          helperText="Some important text"
-          margin="normal"
-          variant="outlined"
-        />
-        <TextField
-          label="Estado"
-          id="outlined-margin-normal"
-          className={classes.textField}
-          helperText="Some important text"
-          margin="normal"
-          variant="outlined"
-        />
+        <h1>Dirección</h1>
+        <div>
+                <TextField
+                     label="Calle"
+                     id="outlined-margin-normal"
+                     className={classes.textField}
+                     helperText="Some important text"
+                     margin="normal"
+                     variant="outlined"
+                />
+                <TextField
+                    label="Num ext"
+                    id="outlined-margin-normal"
+                    className={classes.textField}
+                    helperText="Some important text"
+                    margin="normal"
+                    variant="outlined"
+                />
+                <TextField
+                    label="Colonia"
+                    id="outlined-margin-normal"
+                    className={classes.textField}
+                    helperText="Some important text"
+                    margin="normal"
+                    variant="outlined"
+                />
+                <TextField
+                    label="Estado"
+                    id="outlined-margin-normal"
+                    className={classes.textField}
+                    helperText="Some important text"
+                    margin="normal"
+                    variant="outlined"
+                />
+
+        </div>
       </div>
     </form>
   );
