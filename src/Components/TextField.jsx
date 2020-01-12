@@ -6,13 +6,19 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import { Link } from 'react-router-dom';
 import {createData, rows} from '../Components/CreateData';
+import Alert from '@material-ui/lab/Alert';
+import Collapse from '@material-ui/core/Collapse';
+import CloseIcon from '@material-ui/icons/Close';
+import IconButton from '@material-ui/core/IconButton';
 
 
 export default function LayoutTextFields() {
   const classes = useStyles();
   const [name, setName] = useState(' ');
   const [email, setEmail] = useState(' ');
-  const [birthday, setBirthday] = useState(' ')
+  const [birthday, setBirthday] = useState(' ');
+  const [open, setOpen] = React.useState(true);
+
 
   return (
     <form 
@@ -36,7 +42,8 @@ export default function LayoutTextFields() {
           }}
           variant="outlined"
           onChange = {(e)=>{
-             setName(e.target.value)
+              setName(e.target.value)
+            
             }}
         />
          <TextField
@@ -50,7 +57,7 @@ export default function LayoutTextFields() {
           }}
           variant="outlined"
           onChange = {(e)=>{
-            setEmail(e.target.value)
+              setEmail(e.target.value)  
            }}
         />
         <TextField
@@ -64,7 +71,12 @@ export default function LayoutTextFields() {
             shrink: true,}}
             variant="outlined"
             onChange = {(e)=>{
-                setBirthday(e.target.value)
+              if(e.target.value===null){
+                setOpen(open)
+              }else{
+                  setBirthday(e.target.value)
+                  setOpen(false)
+                }
             }}
         />
         <br></br>
@@ -74,7 +86,6 @@ export default function LayoutTextFields() {
                      label="Calle"
                      id="outlined-margin-normal"
                      className={classes.textField}
-                     helperText="Some important text"
                      margin="normal"
                      variant="outlined"
                 />
@@ -82,7 +93,6 @@ export default function LayoutTextFields() {
                     label="Num ext"
                     id="outlined-margin-normal"
                     className={classes.textField}
-                    helperText="Some important text"
                     margin="normal"
                     variant="outlined"
                 />
@@ -90,7 +100,6 @@ export default function LayoutTextFields() {
                     label="Colonia"
                     id="outlined-margin-normal"
                     className={classes.textField}
-                    helperText="Some important text"
                     margin="normal"
                     variant="outlined"
                 />
@@ -98,7 +107,6 @@ export default function LayoutTextFields() {
                     label="Estado"
                     id="outlined-margin-normal"
                     className={classes.textField}
-                    helperText="Some important text"
                     margin="normal"
                     variant="outlined"
                 />
@@ -108,7 +116,29 @@ export default function LayoutTextFields() {
       <br></br>
       <br></br>
       <div>
+            <Collapse in={open}>
+              <Alert
+                action={
+                  <IconButton
+                    aria-label="close"
+                    color="inherit"
+                    size="small"
+                    onClick={() => {
+                      setOpen(false);
+                    }}
+                    >
+                    <CloseIcon fontSize="inherit" />
+                  </IconButton>
+                }
+                variant="outlined" 
+                severity="error"
+              >
+                Introduce campo faltante
+              </Alert>
+            </Collapse>
+            <br></br>
             <Link to="/registros">
+
                 <Button
                     variant="contained"
                     color="secondary"
@@ -119,7 +149,14 @@ export default function LayoutTextFields() {
                         localStorage.setItem("emaildeusuario", JSON.stringify(email));
                         localStorage.setItem("nacimientodeusuario", JSON.stringify(birthday));
                         rows.push(createData(localStorage.getItem("nombredeusuario"), localStorage.getItem("emaildeusuario") , localStorage.getItem("nacimientodeusuario")))
+                        if(localStorage.getItem("nombredeusuario") !== " " &&  localStorage.getItem("emaildeusuario") !== " " && localStorage.getItem("nacimientodeusuario") !== " "){
+                          setOpen(false)
+                        }else{
+                          setOpen(true)
+                        }
+
                     }}
+
                 >
                 Registrar
                 </Button>

@@ -12,8 +12,10 @@ function Register (){
                     justifyContent:"center",
                     flexDirection:"column"
                 }}>
+                <br></br><br></br>
                 <h1 style={{textAlign:"center"}}>Registro de empleados</h1>
-                <TextField></TextField>
+                <br/><br/>
+                <TextField/>
                
             </section>
         )
