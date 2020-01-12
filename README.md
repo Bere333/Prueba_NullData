@@ -1,5 +1,5 @@
 # Registro de empleados
-Esta es una aplicación web SPA para el registro de empleados, en el que se llenan los campos solicitados y se obtiene una lista con todas las personas registradas, así como se puede visualizar la ubicación actual del empleado.
+Esta es una aplicación web SPA para el registro de empleados, en el que se llenan los campos solicitados y se obtiene una lista con todas las personas registradas, así como es posible visualizar la ubicación actual del empleado.
 
 ## Herramientas utilizadas
 - React.js
