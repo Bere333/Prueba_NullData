@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom';
 export default function LayoutTextFields() {
   const classes = useStyles();
   const [name, setName] = useState(' ');
+  const [email, setEmail] = useState(' ');
+  const [birthday, setBirthday] = useState(' ')
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
@@ -40,6 +42,9 @@ export default function LayoutTextFields() {
             shrink: true,
           }}
           variant="outlined"
+          onChange = {(e)=>{
+            setEmail(e.target.value)
+           }}
         />
         <TextField
           id="date"
@@ -51,6 +56,9 @@ export default function LayoutTextFields() {
           InputLabelProps={{
             shrink: true,}}
             variant="outlined"
+            onChange = {(e)=>{
+                setBirthday(e.target.value)
+            }}
         />
         <h1>Dirección</h1>
         <div>
@@ -89,18 +97,24 @@ export default function LayoutTextFields() {
 
         </div>
       </div>
-      <Link to="/registros">
-            <Button
-                variant="contained"
-                color="primary"
-                className={classes.button}
-                sendIcon={<Icon>send</Icon>}
-                onClick={()=>{localStorage.setItem("nombredeusuario", JSON.stringify(name));}}
-            >
-            Registrar
-            </Button>
+      <div>
+            <Link to="/registros">
+                <Button
+                    variant="contained"
+                    color="primary"
+                    className={classes.button}
+                    sendIcon={<Icon>send</Icon>}
+                    onClick={()=>{
+                        localStorage.setItem("nombredeusuario", JSON.stringify(name));
+                        localStorage.setItem("emaildeusuario", JSON.stringify(email));
+                        localStorage.setItem("nacimientodeusuario", JSON.stringify(birthday));
+                    }}
+                >
+                Registrar
+                </Button>
 
-        </Link>
+            </Link>
+      </div>
     </form>
   );
 }
