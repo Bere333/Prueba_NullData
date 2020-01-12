@@ -5,7 +5,7 @@ import {useStyles} from './Styles';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import { Link } from 'react-router-dom';
-import {createData, rows} from '../Components/CreateData';
+import {createData, rows} from '../Table/CreateData';
 import Alert from '@material-ui/lab/Alert';
 import Collapse from '@material-ui/core/Collapse';
 import CloseIcon from '@material-ui/icons/Close';
@@ -39,6 +39,7 @@ export default function LayoutTextFields() {
               id="outlined-full-width"
               label="Nombre completo"
               style={{ margin: 8 }}
+              type="text"
               placeholder="Introduce tu nombre completo"
               margin="normal"
               InputLabelProps={{

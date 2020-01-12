@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TextField from '../../Components/TextField';
+import TextField from '../../Components/Table/TextField';
 
 
 function Register (){
