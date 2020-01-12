@@ -4,13 +4,14 @@ import './App.css';
 
 import Register from './Views/Register/Register';
 import AllRegisters from './Views/AllRegisters/AllRegisters';
+import {MyMapComponent} from './Components/Map/Map';
 
 function App() {
   return (
     <Router basename={process.env.PUBLIC_URL}>
-        <Route  exact path='/' component={Register} />
-        <Route  exact path='/registros' component={AllRegisters} />
-
+        <Route exact path='/' component={Register} />
+        <Route path='/registros' component={AllRegisters} />
+        <Route path='/ubicacion' component={MyMapComponent}/>
   </Router>
   );
 }
