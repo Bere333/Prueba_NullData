@@ -5,6 +5,7 @@ import {useStyles} from './Styles';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import { Link } from 'react-router-dom';
+import {createData, rows} from '../Components/CreateData';
 
 
 export default function LayoutTextFields() {
@@ -108,6 +109,7 @@ export default function LayoutTextFields() {
                         localStorage.setItem("nombredeusuario", JSON.stringify(name));
                         localStorage.setItem("emaildeusuario", JSON.stringify(email));
                         localStorage.setItem("nacimientodeusuario", JSON.stringify(birthday));
+                        rows.push(createData(localStorage.getItem("nombredeusuario"), localStorage.getItem("emaildeusuario") , localStorage.getItem("nacimientodeusuario")))
                     }}
                 >
                 Registrar

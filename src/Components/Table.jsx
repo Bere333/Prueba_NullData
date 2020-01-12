@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -7,21 +6,18 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import {useStyles} from './Styles';
+import {rows} from './CreateData';
 
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
 
-function createData(name, calories, fat, carbs) {
-  return { name, calories, fat, carbs};
-}
 
-const rows = [
-  createData(localStorage.getItem("nombredeusuario"), localStorage.getItem("emaildeusuario") , localStorage.getItem("nacimientodeusuario"), 24),
 
-];
+// const rows = [
+//   createData(localStorage.getItem("nombredeusuario"), localStorage.getItem("emaildeusuario") , localStorage.getItem("nacimientodeusuario"), 24),
+//   createData(localStorage.getItem("nombredeusuario"), localStorage.getItem("emaildeusuario") , localStorage.getItem("nacimientodeusuario"), 24)
+
+// ];
+
 
 export default function SimpleTable() {
   const classes = useStyles();
@@ -40,13 +36,12 @@ export default function SimpleTable() {
         <TableBody>
           {rows.map(row => (
             <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.calories}</TableCell>
-              <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell>
+                <TableCell component="th" scope="row">
+                  {row.name}
+                </TableCell>
+                <TableCell align="right">{row.email}</TableCell>
+                <TableCell align="right">{row.birthday}</TableCell>
+                <TableCell align="right">{row.direction}</TableCell>
             </TableRow>
           ))}
         </TableBody>

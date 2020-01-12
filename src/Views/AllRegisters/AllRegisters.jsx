@@ -10,10 +10,11 @@ export default function AllRegisters (){
         <div>
             <h1>Registros de empleados</h1>
             <Table/>
+            <br></br>
             <Link to="/">
                 <Fab color="secondary" aria-label="add">
                     <AddIcon />
-                </Fab>
+                </Fab> 
             </Link>
         </div>
     )
