@@ -18,6 +18,10 @@ export default function LayoutTextFields() {
   const [email, setEmail] = useState(' ');
   const [birthday, setBirthday] = useState(' ');
   const [open, setOpen] = React.useState(true);
+  const [street, setStreet] = useState(' ');
+  const [numext, setNumext] = useState(' ');
+  const [colony, setColony] = useState(' ');
+  const [state, setState] = useState(' ');
 
 
   return (
@@ -32,52 +36,46 @@ export default function LayoutTextFields() {
       >
       <div>
         <TextField
-          id="outlined-full-width"
-          label="Nombre completo"
-          style={{ margin: 8 }}
-          placeholder="Introduce tu nombre completo"
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="outlined"
-          onChange = {(e)=>{
-              setName(e.target.value)
-            
-            }}
+              id="outlined-full-width"
+              label="Nombre completo"
+              style={{ margin: 8 }}
+              placeholder="Introduce tu nombre completo"
+              margin="normal"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              variant="outlined"
+              onChange = {(e)=>{
+                  setName(e.target.value) 
+              }}
         />
          <TextField
-          id="outlined-full-width"
-          label="Correo"
-          style={{ margin: 8 }}
-          placeholder="Introduce tu correo"
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-          variant="outlined"
-          onChange = {(e)=>{
-              setEmail(e.target.value)  
-           }}
+              id="outlined-full-width"
+              label="Correo"
+              style={{ margin: 8 }}
+              placeholder="Introduce tu correo"
+              margin="normal"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              variant="outlined"
+              onChange = {(e)=>{
+                  setEmail(e.target.value)  
+              }}
         />
         <TextField
-          id="date"
-          label="Fecha de nacimiento"
-          type="date"
-          style={{ margin: 8 }}
-          defaultValue="2020-01-01"
-          className={classes.textField}
-          InputLabelProps={{
-            shrink: true,}}
-            variant="outlined"
-            onChange = {(e)=>{
-              if(e.target.value===null){
-                setOpen(open)
-              }else{
-                  setBirthday(e.target.value)
-                  setOpen(false)
-                }
-            }}
+              id="date"
+              label="Fecha de nacimiento"
+              type="date"
+              style={{ margin: 8 }}
+              defaultValue="2020-01-01"
+              className={classes.textField}
+              InputLabelProps={{
+                shrink: true,}}
+                variant="outlined"
+                onChange = {(e)=>{
+                      setBirthday(e.target.value)
+                }}
         />
         <br></br>
         <h1>Dirección</h1>
@@ -88,6 +86,9 @@ export default function LayoutTextFields() {
                      className={classes.textField}
                      margin="normal"
                      variant="outlined"
+                     onChange = {(e)=>{
+                       setStreet(e.target.value)
+                     }}
                 />
                 <TextField
                     label="Num ext"
@@ -95,6 +96,9 @@ export default function LayoutTextFields() {
                     className={classes.textField}
                     margin="normal"
                     variant="outlined"
+                    onChange = {(e)=>{
+                      setNumext(e.target.value)
+                    }}
                 />
                 <TextField
                     label="Colonia"
@@ -102,6 +106,9 @@ export default function LayoutTextFields() {
                     className={classes.textField}
                     margin="normal"
                     variant="outlined"
+                    onChange = {(e)=>{
+                      setColony(e.target.value)
+                    }}
                 />
                 <TextField
                     label="Estado"
@@ -109,6 +116,14 @@ export default function LayoutTextFields() {
                     className={classes.textField}
                     margin="normal"
                     variant="outlined"
+                    onChange = {(e)=>{
+                      if(e.target.value===null || name === ' ' ||  email === ' '){
+                        setOpen(open)
+                      }else{
+                          setState(e.target.value)
+                          setOpen(false)
+                        }
+                    }}
                 />
 
         </div>
@@ -145,10 +160,14 @@ export default function LayoutTextFields() {
                     className={classes.button}
                     sendIcon={<Icon>send</Icon>}
                     onClick={()=>{
-                        localStorage.setItem("nombredeusuario", JSON.stringify(name));
-                        localStorage.setItem("emaildeusuario", JSON.stringify(email));
-                        localStorage.setItem("nacimientodeusuario", JSON.stringify(birthday));
-                        rows.push(createData(localStorage.getItem("nombredeusuario"), localStorage.getItem("emaildeusuario") , localStorage.getItem("nacimientodeusuario")))
+                        localStorage.setItem("nombredeusuario", name);
+                        localStorage.setItem("emaildeusuario", email);
+                        localStorage.setItem("nacimientodeusuario", birthday);
+                        localStorage.setItem("calledeusuario", street);
+                        localStorage.setItem("numextdeusuario", numext);
+                        localStorage.setItem("colonydeusuario", colony);
+                        localStorage.setItem("statedeusuario", state);
+                        rows.push(createData(localStorage.getItem("nombredeusuario"), localStorage.getItem("emaildeusuario") , localStorage.getItem("nacimientodeusuario"), localStorage.getItem("calledeusuario"), localStorage.getItem("numextdeusuario"),localStorage.getItem("colonydeusuario"),localStorage.getItem("statedeusuario")))
                         if(localStorage.getItem("nombredeusuario") !== " " &&  localStorage.getItem("emaildeusuario") !== " " && localStorage.getItem("nacimientodeusuario") !== " "){
                           setOpen(false)
                         }else{

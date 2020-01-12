@@ -1,5 +1,5 @@
 
-export function createData(name, email, birthday, direction) {
-    return { name, email, birthday, direction};
+export function createData(name, email, birthday, direction, numext, colony, state) {
+    return { name, email, birthday, direction, numext, colony, state};
   }
 export const rows = []
