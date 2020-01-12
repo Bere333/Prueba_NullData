@@ -8,11 +8,11 @@ import {
   Marker
 } from "react-google-maps";
 
-import {config} from './Config'
+import {apiKey} from './Config'
 
 export const MyMapComponent = compose(
   withProps({
-    googleMapURL:config.MY_KEY,
+    googleMapURL:apiKey,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `400px` }} />,
     mapElement: <div style={{ height: `100%` }} />
