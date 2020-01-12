@@ -7,8 +7,8 @@ import AddIcon from '@material-ui/icons/Add';
 
 export default function AllRegisters (){
     return(
-        <div>
-            <h1>Registros de empleados</h1>
+        <div style={{textAlign:"center"}}>
+            <h1>Registro de empleados</h1>
             <Table/>
             <br></br>
             <Link to="/">

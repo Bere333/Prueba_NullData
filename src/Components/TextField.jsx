@@ -15,14 +15,21 @@ export default function LayoutTextFields() {
   const [birthday, setBirthday] = useState(' ')
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form 
+      className={classes.root} noValidate autoComplete="off" 
+      style={{
+        textAlign:"center",
+        display:"flex", 
+        justifyContent:"center",
+        flexDirection:"column"
+      }}
+      >
       <div>
         <TextField
           id="outlined-full-width"
           label="Nombre completo"
           style={{ margin: 8 }}
           placeholder="Introduce tu nombre completo"
-          fullWidth
           margin="normal"
           InputLabelProps={{
             shrink: true,
@@ -37,7 +44,6 @@ export default function LayoutTextFields() {
           label="Correo"
           style={{ margin: 8 }}
           placeholder="Introduce tu correo"
-          fullWidth
           margin="normal"
           InputLabelProps={{
             shrink: true,
@@ -61,6 +67,7 @@ export default function LayoutTextFields() {
                 setBirthday(e.target.value)
             }}
         />
+        <br></br>
         <h1>Dirección</h1>
         <div>
                 <TextField
@@ -98,11 +105,13 @@ export default function LayoutTextFields() {
 
         </div>
       </div>
+      <br></br>
+      <br></br>
       <div>
             <Link to="/registros">
                 <Button
                     variant="contained"
-                    color="primary"
+                    color="secondary"
                     className={classes.button}
                     sendIcon={<Icon>send</Icon>}
                     onClick={()=>{
