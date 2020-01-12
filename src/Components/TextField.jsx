@@ -78,7 +78,7 @@ export default function LayoutTextFields() {
                 }}
         />
         <br></br>
-        <h1>Dirección</h1>
+        <h1 style={{textAlign:"center", fontSize:"20px", fontFamily:"'Roboto', sans-serif"}}>Dirección:</h1>
         <div>
                 <TextField
                      label="Calle"
@@ -131,7 +131,7 @@ export default function LayoutTextFields() {
       <br></br>
       <br></br>
       <div>
-            <Collapse in={open}>
+            <Collapse in={open} style={{width:"70rem", margin:"0rem 2rem 2rem 4.5rem"}}>
               <Alert
                 action={
                   <IconButton
@@ -148,11 +148,11 @@ export default function LayoutTextFields() {
                 variant="outlined" 
                 severity="error"
               >
-                Introduce campo faltante
+                Introduce los campos faltantes
               </Alert>
             </Collapse>
             <br></br>
-            <Link to="/registros">
+            <Link to="/registros" style={{textDecoration:"none"}}>
 
                 <Button
                     variant="contained"

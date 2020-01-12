@@ -26,7 +26,7 @@ export default function SimpleTable() {
             <TableCell align="center">Email</TableCell>
             <TableCell align="center">Fecha de nacimiento</TableCell>
             <TableCell align="center">Dirección</TableCell>
-            <TableCell align="center">Ver información</TableCell>
+            <TableCell align="center">Ver ubicación</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -37,12 +37,12 @@ export default function SimpleTable() {
                 <TableCell align="center">{row.birthday}</TableCell>
                 <TableCell align="center">{row.direction},{row.numext},{row.colony},{row.state}</TableCell>
                 <TableCell align="center">
-                  <Link to="/ubicacion">
+                  <Link to="/ubicacion" style={{textDecoration:"none"}}>
                       <Button  
                         variant="contained"
                         color="secondary"
                         align="center"
-                        >Información</Button>
+                        >Ubicación</Button>
                   </Link>
                 </TableCell>
 
